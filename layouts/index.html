@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Alpine.js</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="/store/store.js"></script>
+</head>
+
+<style>
+    .elipsis {
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        word-break: break-word;
+        display: -webkit-box;
+    }
+</style>
+
+<body x-data>
+    <!-- <button @click="$store.news.onLoad('cnbc-news')">Click</button>
+    <br />
+    <span x-show="$store.news.loading">Loading....</span>
+    <br />
+    <span x-show="$store.news.error?.message">Failed!</span> -->
+    <div class="w-full bg-white shadow-md py-6 px-10">
+        <div class="m-auto max-w-3xl overflow-x-auto whitespace-nowrap scrollbar-hide" style="width: fit-content;">
+            <div class="inline-block mr-10 cursor-pointer" @click="$store.news.onLoad('cnbc-news')">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/CNBC_logo.svg/2560px-CNBC_logo.svg.png"
+                    class="w-[60px] h-[60px] object-contain object-center" />
+            </div>
+        </div>
+    </div>
+
+    <div x-show="$store.news.loading" x-transition:enter="transition ease-out duration-300"
+        x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-1"
+        class="w-full min-h-[400px] flex items-center justify-center">
+        <h1 class="text-xl">Loading...</h1>
+    </div>
+
+    <div x-show="!$store.news.loading" x-transition:enter="transition ease-out duration-300"
+        x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-1"
+        class="w-full grid grid-cols-4 max-w-7xl m-auto py-10 gap-6">
+        <template x-for="item in $store.news.data">
+            <div class="w-full shadow-lg rounded-lg">
+                <img class="w-full h-[200px] object-cover rounded-t-lg"
+                    src="https://images.pexels.com/photos/2486168/pexels-photo-2486168.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" />
+                <div class="w-full p-4">
+                    <h5 class="text-xl font-bold elipsis" x-text="item.title">Title</h5>
+                    <p class="text-sm font-normal mt-1.5 tracking-wide elipsis" x-text="item.description">
+                        Caption Caption Caption Caption Caption</p>
+                </div>
+            </div>
+        </template>
+    </div>
+</body>
+
+</html>
