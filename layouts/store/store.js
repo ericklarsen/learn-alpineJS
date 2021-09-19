@@ -9,13 +9,41 @@ async function requestData(url) {
 }
 
 document.addEventListener('alpine:init', () => {
-    // console.log('alpine init')
+    Alpine.store('list', {
+        data: [
+            {
+                id: 1,
+                url: "cnbc-news",
+                image: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/CNBC_logo.svg/2560px-CNBC_logo.svg.png"
+            },
+            {
+                id: 2,
+                url: "republika-news",
+                image: "https://globalprestasi.sch.id/images/republika.png"
+            },
+            {
+                id: 3,
+                url: "okezone-news",
+                image: "https://pngimage.net/wp-content/uploads/2018/06/okezone-png-5.png"
+            },
+            {
+                id: 4,
+                url: "kumparan-news",
+                image: "https://blue.kumparan.com/image/upload/fl_progressive,fl_lossy,c_fill,q_auto:best,w_320/v1606836797/szedbshhhmsmebk6cs5y.png"
+            },
+            {
+                id: 5,
+                url: "tribun-news",
+                image: "https://pbs.twimg.com/profile_images/1252799645610205189/PgLokJMF_400x400.png"
+            },
+        ]
+    })
     Alpine.store('news', {
         loading: false,
         error: "",
         data: [],
         async init() {
-            this.onLoad('bbc-news')
+            this.onLoad('cnbc-news')
         },
         async onLoad(type) {
             const store = Alpine.store('news')

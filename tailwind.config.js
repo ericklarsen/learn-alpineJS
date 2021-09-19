@@ -5,7 +5,14 @@ module.exports = {
   ],
   darkMode: false, // or 'media' or 'class'
   theme: {
-    extend: {},
+    extend: {
+      width : {
+        "fit-content" : "fit-content"
+      },
+      height : {
+        "fit-content" : "fit-content"
+      }
+    },
   },
   variants: {
     extend: {},
