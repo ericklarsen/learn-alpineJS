@@ -21,6 +21,10 @@
         word-break: break-word;
         display: -webkit-box;
     }
+
+    [x-cloak] {
+        display: none !important;
+    }
 </style>
 
 <body x-data>
@@ -47,8 +51,8 @@
     <div x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0"
         x-transition:enter-end="opacity-1"
         class="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 max-w-7xl m-auto p-4 md:p-10 gap-6">
-        
-        <template x-for="item in $store?.news?.data">
+
+        <template x-cloak x-for="item in $store.news.data">
             <a x-bind:href="item.link" target="blank"
                 class="w-full shadow-lg rounded-lg cursor-pointer transform transition-all lg:hover:scale-105">
                 <img class="w-full h-[200px] object-cover rounded-t-lg"
