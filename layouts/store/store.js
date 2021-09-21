@@ -39,6 +39,16 @@ document.addEventListener('alpine:init', () => {
         ]
     })
 
+    Alpine.store('list2', {
+        loading: false,
+        error: "",
+        data: [{
+            id: 1,
+            title: "Test",
+            contentSnippet: "hELOOO"
+        }],
+    })
+
     Alpine.store('news', {
         loading: false,
         error: "",
