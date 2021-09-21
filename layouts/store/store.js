@@ -82,22 +82,22 @@ document.addEventListener('alpine:init', () => {
         // init() {
         //     this.onLoad('cnbc-news')
         // },
-        async onLoad(type) {
-            const store = Alpine.store('news')
-            if (!store.loading) {
-                store.loading = true;
+        // async onLoad(type) {
+        //     const store = Alpine.store('news')
+        //     if (!store.loading) {
+        //         store.loading = true;
 
-                const fetch = await requestData('https://berita-indo-api.vercel.app/v1/' + type)
-                store.loading = false;
+        //         const fetch = await requestData('https://berita-indo-api.vercel.app/v1/' + type)
+        //         store.loading = false;
 
-                if (fetch instanceof Error) {
-                    console.log('Error')
-                    store.error = fetch
-                } else {
-                    console.log(fetch.data.data)
-                    store.data = fetch.data.data
-                }
-            }
-        }
+        //         if (fetch instanceof Error) {
+        //             console.log('Error')
+        //             store.error = fetch
+        //         } else {
+        //             console.log(fetch.data.data)
+        //             store.data = fetch.data.data
+        //         }
+        //     }
+        // }
     })
 })
