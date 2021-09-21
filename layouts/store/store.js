@@ -79,9 +79,9 @@ document.addEventListener('alpine:init', () => {
             contentSnippet: "hELOOO",
             image: "https://pbs.twimg.com/profile_images/1252799645610205189/PgLokJMF_400x400.png"
         }],
-        // init() {
-        //     this.onLoad('cnbc-news')
-        // },
+        init() {
+            this.onLoad('cnbc-news')
+        },
         async onLoad(type) {
             const store = Alpine.store('news')
             if (!store.loading) {

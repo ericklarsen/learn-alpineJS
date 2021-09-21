@@ -54,7 +54,7 @@
 
         <template x-for="item in $store.news.data">
             <div class="inline-block cursor-pointer w-fit-content h-full mr-16 last:mr-0">
-                <img src="" x-bind:src="item.image" class="h-full md:h-full object-contain object-center" />
+                <img src="" x-bind:src="!item.image.hasOwnProperty('small') ? item?.image : item?.image?.small" class="h-full md:h-full object-contain object-center" />
             </div>
         </template>
         <!-- <template  x-for="item in $store.list2.data">
