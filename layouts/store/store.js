@@ -9,6 +9,16 @@ async function requestData(url) {
 }
 
 document.addEventListener('alpine:init', () => {
+    Alpine.store('list2', {
+        loading: false,
+        error: "",
+        data: [{
+            id: 1,
+            title: "Test",
+            contentSnippet: "hELOOO"
+        }],
+    })
+    
     Alpine.store('list', {
         data: [
             {
@@ -37,16 +47,6 @@ document.addEventListener('alpine:init', () => {
                 image: "https://pbs.twimg.com/profile_images/1252799645610205189/PgLokJMF_400x400.png"
             },
         ]
-    })
-
-    Alpine.store('list2', {
-        loading: false,
-        error: "",
-        data: [{
-            id: 1,
-            title: "Test",
-            contentSnippet: "hELOOO"
-        }],
     })
 
     Alpine.store('news', {
