@@ -78,7 +78,7 @@ document.addEventListener('alpine:init', () => {
             title: "Test",
             contentSnippet: "hELOOO"
         }],
-        async init() {
+        init() {
             this.onLoad('cnbc-news')
         },
         async onLoad(type) {
