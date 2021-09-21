@@ -41,9 +41,13 @@ document.addEventListener('alpine:init', () => {
     Alpine.store('news', {
         loading: false,
         error: "",
-        data: [],
+        data: [{
+            id: 1,
+            title:  "Test",
+            contentSnippet : "hELOOO"
+        }],
         async init() {
-            this.onLoad('cnbc-news')
+            // this.onLoad('cnbc-news')
         },
         async onLoad(type) {
             const store = Alpine.store('news')
