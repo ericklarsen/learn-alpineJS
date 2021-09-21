@@ -52,19 +52,24 @@
         x-transition:enter-end="opacity-1"
         class="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 max-w-7xl m-auto p-4 md:p-10 gap-6">
 
-        <template x-cloak x-for="item2 in $store.news.data">
-            <a x-bind:href="item2.link" target="blank"
+        <template x-cloak x-for="item in $store.list.data">
+            <!-- <a x-bind:href="item.link" target="blank"
                 class="w-full shadow-lg rounded-lg cursor-pointer transform transition-all lg:hover:scale-105">
                 <img class="w-full h-[200px] object-cover rounded-t-lg"
-                    x-bind:src="item2?.image?.hasOwnProperty('small') ? item2.image.small : item2?.image"
+                    x-bind:src="item?.image?.hasOwnProperty('small') ? item.image.small : item?.image"
                     src="https://images.pexels.com/photos/2486168/pexels-photo-2486168.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" />
                 <div class="w-full p-4">
-                    <h5 class="text-xl font-bold elipsis" x-text="item2.title">Title</h5>
+                    <h5 class="text-xl font-bold elipsis" x-text="item.title">Title</h5>
                     <p class="text-sm font-normal mt-1.5 tracking-wide elipsis"
-                        x-text="item2?.contentSnippet || item2?.content || item2?.description">
+                        x-text="item?.contentSnippet || item?.content || item?.description">
                         Caption Caption Caption Caption Caption</p>
                 </div>
-            </a>
+            </a> -->
+            <div class="w-full shadow-lg rounded-lg cursor-pointer transform transition-all lg:hover:scale-105">
+                <img class="w-full h-[200px] object-cover rounded-t-lg"
+                    x-bind:src="item.image"
+                    src="https://images.pexels.com/photos/2486168/pexels-photo-2486168.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" />
+            </div>
         </template>
     </div>
 </body>
